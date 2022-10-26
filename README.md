@@ -17,10 +17,10 @@ package Admin
 import (
 	"fmt"
 	. "github.com/XRSec/Go-Wechaty-Bot/General"
+	. "github.com/XRSec/Go-Wechaty-Bot/Plug"
 	"github.com/wechaty/go-wechaty/wechaty"
 	"github.com/wechaty/go-wechaty/wechaty-puppet/schemas"
 	"github.com/wechaty/go-wechaty/wechaty/user"
-	. "github.com/XRSec/Go-Wechaty-Bot/Plug"
 )
 
 var (
@@ -41,7 +41,7 @@ func onMessage(context *wechaty.Context, message *user.Message) {
 		fmt.Println()
 		return
 	}
-	
+
 	fmt.Println(message.Text())
 
 	if m.Status {
@@ -51,8 +51,8 @@ func onMessage(context *wechaty.Context, message *user.Message) {
 		goto end
 	} else {
 		fmt.Println("Friend")
-    }
-	
+	}
+
 end:
 	context.SetData("msgInfo", m)
 }

@@ -1,5 +1,12 @@
 package Admin
 
+/*
+该插件仅提供：
+	群聊 添加机器人好友
+	群聊踢人
+	改名字
+*/
+
 import (
 	"fmt"
 	. "github.com/XRSec/Go-Wechaty-Bot/General"
@@ -58,7 +65,7 @@ func onMessage(context *wechaty.Context, message *user.Message) {
 		log.Infof("Age: [%v] CoptRight: [%v]", message.Age()/(60*time.Second), Copyright(make([]uintptr, 1)))
 		return
 	}
-	
+
 	if message.Self() || m.UserID == viper.GetString("BOT.ADMINID") {
 	} else {
 		return

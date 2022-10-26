@@ -1,11 +1,16 @@
 package Group
 
+/*
+该插件仅提供：
+	群聊 回复 权限
+	群聊 邀请 权限
+*/
 import (
 	"fmt"
-	"strings"
-	"time"
 	. "github.com/XRSec/Go-Wechaty-Bot/General"
 	. "github.com/XRSec/Go-Wechaty-Bot/Plug"
+	"strings"
+	"time"
 
 	"github.com/spf13/viper"
 	_interface "github.com/wechaty/go-wechaty/wechaty/interface"
@@ -69,17 +74,17 @@ func onMessage(context *wechaty.Context, message *user.Message) {
 		if !viper.GetBool("GROUP.PASS." + m.RoomID) {
 			viper.Set("GROUP.PASS."+m.RoomID, true)
 		}
-		SayMessage(context, message, "群服务关闭!")
+		SayMessage(context, message, "正在添加该群到群服务关闭列表!")
 	}
 	if strings.Contains(message.MentionText(), "group.pass.remove") {
 		if viper.GetBool("GROUP.PASS." + m.RoomID) {
 			viper.Set("GROUP.PASS."+m.RoomID, false)
 		}
-		SayMessage(context, message, fmt.Sprintf("群服务开启!"))
+		SayMessage(context, message, fmt.Sprintf("正在将该群从群服务关闭列表移除!"))
 	}
 	if strings.Contains(message.MentionText(), "group.pass.clean") {
 		viper.Set("GROUP.PASS.", "")
-		SayMessage(context, message, fmt.Sprintf("群服务已全部开启!"))
+		SayMessage(context, message, fmt.Sprintf("正在将群服务关闭列表清空!"))
 	}
 
 	if strings.Contains(message.MentionText(), "group.lists.add") {
@@ -92,11 +97,11 @@ func onMessage(context *wechaty.Context, message *user.Message) {
 		if viper.GetString("GROUP.LISTS."+m.RoomID) != strings.ToLower(m.RoomName) {
 			viper.Set("GROUP.LISTS."+m.RoomID, m.RoomName)
 		}
-		SayMessage(context, message, fmt.Sprintf("智能加群已开启,关键词: 「%v」", strings.ToLower(m.RoomName)))
+		SayMessage(context, message, "智能加群已关闭")
 	}
 	if strings.Contains(message.MentionText(), "group.lists.clean") {
 		viper.Set("GROUP.LISTS."+m.RoomID, "")
-		SayMessage(context, message, fmt.Sprintf("智能加群已关闭!"))
+		SayMessage(context, message, fmt.Sprintf("智能加群列表已清空!"))
 	}
 
 	if viper.GetBool("GROUP.PASS." + m.RoomID) {

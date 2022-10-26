@@ -3,6 +3,7 @@ package GroupForward
 import (
 	"encoding/json"
 	"fmt"
+	. "github.com/XRSec/Go-Wechaty-Bot/General"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	"github.com/wechaty/go-wechaty/wechaty"
@@ -14,7 +15,6 @@ import (
 	"os"
 	"strings"
 	"time"
-	. "github.com/XRSec/Go-Wechaty-Bot/General"
 )
 
 /*

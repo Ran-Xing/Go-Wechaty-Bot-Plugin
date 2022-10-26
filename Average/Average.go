@@ -1,11 +1,17 @@
 package Average
 
+/*
+该插件仅提供：
+	群聊 添加机器人好友
+	群聊 个性化操作
+*/
+
 import (
 	"fmt"
-	"strings"
-	"time"
 	. "github.com/XRSec/Go-Wechaty-Bot/General"
 	. "github.com/XRSec/Go-Wechaty-Bot/Plug"
+	"strings"
+	"time"
 
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"

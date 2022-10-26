@@ -1,6 +1,8 @@
 package ExportMessages
 
 import (
+	. "github.com/XRSec/Go-Wechaty-Bot/General"
+	"github.com/XRSec/Go-Wechaty-Bot/Plug"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	"github.com/wechaty/go-wechaty/wechaty"
@@ -9,8 +11,6 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"time"
-	. "github.com/XRSec/Go-Wechaty-Bot/General"
-	"github.com/XRSec/Go-Wechaty-Bot/Plug"
 )
 
 var (
