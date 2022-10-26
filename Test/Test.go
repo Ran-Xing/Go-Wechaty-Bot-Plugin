@@ -12,7 +12,6 @@ import (
 
 func New() *wechaty.Plugin {
 	plug := wechaty.NewPlugin()
-	plug.OnLogin(onLogin)
 	plug.OnMessage(onMessage)
 	return plug
 }
@@ -29,8 +28,4 @@ func onMessage(context *wechaty.Context, message *user.Message) {
 	m.Pass = true
 	m.PassResult = "您不是管理员，无法使用"
 	context.SetData("msgInfo", m)
-}
-
-func onLogin(context *wechaty.Context, user *user.ContactSelf) {
-
 }
